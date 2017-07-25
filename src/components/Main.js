@@ -2,6 +2,7 @@ import React from 'react';
 
 // IMPORT CHILDREN (Saved and Search)
 import Search from './Search';
+import Form from '../form.jsx';
 
 import helpers from '../utils/helpers';
 
@@ -15,7 +16,9 @@ class Main extends React.Component {
 	constructor(){  //exclusively for Main class
 		super();  //Calls constructor of React.Component so we can override the Constructor
 
-
+    this.state= {
+      searchResults: [];
+    }
 
 	}; //Closing Constructor
 
@@ -24,6 +27,17 @@ class Main extends React.Component {
 //MAKE AJAX CALL within ComponentDidMount()
 
 // Create Result Component
+
+
+makeRequest = (topic, firstName, lastName) => {
+  console.log("Make Req F(x)");
+  console.log(this.state);
+
+  // 1) get Search Parameters
+  // 2) make request to NYT with search parameters
+  // 3) update the state.searchResearch with response from NYT
+  // 4) axios.get
+}
 
 render(){
 return (
@@ -47,6 +61,8 @@ return (
 			<Search name="Nico" />
 
         </div>
+
+        <Form  makeRequest={this.makeRequest}/>
       </div>
 
 

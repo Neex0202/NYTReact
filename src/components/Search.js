@@ -45,6 +45,10 @@ class Search extends React.Component {
 
 	}
 
+// handleChange = () => {
+
+  
+// }
 //Search function 
 // handleSearch = () => {
 
