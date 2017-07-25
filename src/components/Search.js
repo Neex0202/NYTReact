@@ -1,7 +1,7 @@
 import React from 'react';
 
 // IMPORT CHILDREN (Saved and Search)
-
+import helpers from '../utils/helpers';
 //Ask question about creating front-end routes
 //Axios (helper) vs Ajax
 
@@ -16,7 +16,7 @@ var searchResArray = [];
 
 
 //Base URL to use in AJAX CALL to grab Articles
-var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&q=" + searchTerm + "&begin_date=" + startYear + "0101" + "&end_date=" + endYear;
+// var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&q=" + searchTerm + "&begin_date=" + startYear + "0101" + "&end_date=" + endYear;
 
 
 
@@ -36,11 +36,30 @@ class Search extends React.Component {
 	constructor(){  //exclusively for Main class
 		super();  //Calls constructor of React.Component so we can override the Constructor
 
-//Search function 
-handleSearch = () => {
 
-//RUN ajax call function
-}
+	//SET STATE TO CURRENT VIEW ie topic: "". 
+	this.state = {
+		topic: "",
+		startYear: "",
+		endyear: ""
+
+	}
+
+//Search function 
+// handleSearch = () => {
+
+
+// }
+
+
+		//Handle Change f(x) to set state of view so that we may use "new" states within our runSerach Function
+    // handleChange: function(event) {
+
+    //   var newState = {};
+    //   newState[event.target.id] = event.target.value;
+    //   this.setState(newState);
+    // },
+
 
 	}; //Closing Constructor
 
@@ -53,46 +72,18 @@ return(
   <div>
   <form>
   <label>Topic</label>
-    <input className="form-control" id="topic" placeholder="Enter Topic">
+    <input className="form-control" id="topic" placeholder="Enter Topic" />
       
-    </input>
+  <label>Start year</label>
+ <input value={this.state.value} className="form-control " id="start" onBlur= {this.handleChange}/>
+  <label>End year</label>
+  <input value={this.state.value} className="form-control " id="end" onBlur= {this.handleChange}/>
   </form>
     
 
 
   </div>
-	//HTML
-	// <div class="row">
-	// <form className="form-horizontal">
-	// <div className="form-group">
- //    <label className="control-label col-sm-2" for="topicSearch">Topic</label>
- //    <div className="col-sm-10">
- //      <input type="email" className="form-control" id="topic" placeholder="Enter email">
- //    </div>
- //  </div>
- //  <div className="form-group">
- //    <label className="control-label col-sm-2" for="startYear">Start Year</label>
- //    <div className="col-sm-10"> 
- //      <input type="password" className="form-control" id="startYr" placeholder="Enter password">
- //    </div>
- //  </div>
- //  <div className="form-group"> 
- //    <label className="control-label col-sm-offset-2 col-sm-10"
- //    for="endYear">End Year</label>
- //      <div className="col-sm-10">
- //    	<input type="" className="form-control" id=""
- //        <label><input type="checkbox"> Remember me</label>
- //      </div>
- //    </div>
- //  </div>
- //  <div class="form-group"> 
- //    <div class="col-sm-offset-2 col-sm-10">
- //      <button type="submit" class="btn btn-default">Submit</button>
- //    </div>
- //  </div>
 
-	// </form>
-	// </div>
 
 
 	)

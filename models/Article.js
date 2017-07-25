@@ -4,7 +4,7 @@ var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
 //Create Schema for Saved Articles
-var Article = new Schema({
+var ArticleSchema = new Schema({
   title: {
     type: String,
     required: true

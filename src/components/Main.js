@@ -16,9 +16,6 @@ class Main extends React.Component {
 		super();  //Calls constructor of React.Component so we can override the Constructor
 
 
-		this.state.children = {
-			children:0 
-		};
 
 	}; //Closing Constructor
 
@@ -31,20 +28,39 @@ class Main extends React.Component {
 render(){
 return (
 //HTML
-<div>
-<h1>Hi from Main Component</h1>
-<Search childCount={this.state.children} name="Nico"/>
 
 
 
 
-</div>
+
+      <div className="main-container">
+
+
+        <div className="container">
+
+ 
+             <div className="jumbotron">
+            <h2 className="text-center"><strong>New York Times Article Scrubber</strong></h2>
+          </div>
+
+       
+			<Search name="Nico" />
+
+        </div>
+      </div>
+
+
+
+
+
+
+
 
 
 	)//Close Return
 }//Close Render
-
 }; //Close Class Main
+
 
 //Export Main to Index.js
 export default Main;

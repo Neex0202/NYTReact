@@ -78,20 +78,7 @@ app.post("api/saved", function(req,res){
 
 	//MUST DEFINE ARTICLE DATA IN COMPONENT/AJAX POST/ DATA OBJECT 
 	
-  //  $.ajax({
-  //   type: "POST",
-  //   url: "/api/saved",
-  //   dataType: "json",
-  //   data: {
-  //     title: $("#title").val(),
-  //     author: $("#author").val(),
-  //     created: Date.now()
-  //   }
-  // })
-  // .done(function(data) {});
-
-  // ^^^^^^^^^^^^^^
-  // CODE THIS IN CLIENT SIDE LOGIC(aka REACT COMPONENTS)
+ 
 
 
 	var article = req.body;
