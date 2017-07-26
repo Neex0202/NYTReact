@@ -10,7 +10,14 @@ var apiKey = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
 
 //Base URL to use in AJAX CALL to grab Articles
 // var queryURLBase = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + authKey + "&q=" + searchTerm + "&begin_date=" + startYear + "0101" + "&end_date=" + endYear;
+	this.state = {
+		topic:"",
+		// firstName: "",
+		// lastName: "",
+		startYear:"",
+		endyear: ""
 
+	}
 
 
 // function searchForArticles(){
@@ -34,13 +41,10 @@ class Search extends React.Component {
 	this.state = {
 		topic: "",
 		startYear: "",
-		endyear: ""
+		endYear: ""
 
 	}
 
-// handleChange = () => {
-
-  
 // }
 //Search function 
 // handleSearch = () => {
@@ -61,6 +65,30 @@ class Search extends React.Component {
 	}; //Closing Constructor
 
 //Include componentDidMount() function
+	handleChange = event => {
+		console.log(event.target.value);
+		console.log(event.target.id);
+		// alert("HandleChange")
+		this.setState({
+			[event.target.id] : event.target.value
+
+
+		});
+
+		console.log(this.state.firstName);
+	}
+  
+
+  handleSubmit = event => {
+		event.preventDefault();
+		console.log("handleSubmit fire")
+		console.log(this.state);
+		this.props.makeRequest(this.state.topic, this.state.firstName, this.state.lastName);
+
+		//include axios.get call with NYT API
+		//results from call > pass to Main, as a prop
+
+	}
 
 render(){
 return(
@@ -68,15 +96,20 @@ return(
 
   <div>
   <form>
-  <label>Topic</label>
-    <input className="form-control" id="topic" placeholder="Enter Topic" />
-      
-  <label>Start year</label>
- <input value={this.state.value} className="form-control " id="start" onBlur= {this.handleChange}/>
-  <label>End year</label>
-  <input value={this.state.value} className="form-control " id="end" onBlur= {this.handleChange}/>
+
+    <label htmlFor = "topic" >Topic </label>
+			<input type ="type" id="topic" value={this.state.topic}
+			onChange={this.handleChange}/>
+			<label htmlFor = "startYr">StartYear: </label>
+			<input type ="type" id="startYear" value={this.state.startYear}
+			onChange={this.handleChange}/>
+			<label htmlFor = "endYr">EndYear: </label>
+			<input type ="type" id="endYear" value={this.state.endYear}
+			onChange={this.handleChange}/>
+
+			<button type="button" className="btn btn-primary" onClick={this.handleSubmit}> Submit </button>
+
   </form>
-    
 
 
   </div>
@@ -89,3 +122,10 @@ return(
 
 //Export Main to Index.js
 export default Search;
+ //  <label htmlFor = "topic">Topic</label>
+ //  <input type ="text" className="" id="topic" placeholder="Enter Topic" value ={this.state.topic} onChange= {this.handleChange}/>
+      
+ //  <label>Start year</label>
+ // <input type ="number" value={this.state.startYear} className="" id="start" onChange= {this.handleChange}/>
+ //  <label>End year</label>
+ //  <input type ="number" value={this.state.endyear} className="" id="end" onChange= {this.handleChange}/>

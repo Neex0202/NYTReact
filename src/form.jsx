@@ -7,7 +7,7 @@ constructor(){
 	super();
 
 	this.state = {
-		topic:""
+		topic:"",
 		firstName: "",
 		lastName: "",
 		startYear:"",
