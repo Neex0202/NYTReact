@@ -2,17 +2,10 @@ import React from 'react';
 
 // IMPORT CHILDREN (Saved and Search)
 import helpers from '../utils/helpers';
-//Ask question about creating front-end routes
-//Axios (helper) vs Ajax
-
+import axios from 'axios';
 //INCLUDE AJAX CALL FROM NYT API
 
 var apiKey = "b9f91d369ff59547cd47b931d8cbc56b:0:74623931";
-var searchTerm 	= "";
-var numResults 	= 5;
-var startYear = "";  //parseInt
-var endYear		= "";  //parseInt
-var searchResArray = [];
 
 
 //Base URL to use in AJAX CALL to grab Articles
