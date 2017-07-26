@@ -11,26 +11,6 @@ const helper = {
 		console.log("TOPIC: " + topic);
 		var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=" + apiKey + "&q=" + topic + "&begin_date" + startYear + "&0101&end_date" + endYear + "0101";
 		return axios.get(queryURL)
-		.then(function(response) {
-			var results = [];
-			var responseResults = response.data.response.docs;//.docs
-			var counter = 0;
-
-			for(var i = 0; i < responseResults.length; i++) {
-				if (counter < 5) {
-					
-			
-
-				if (responseResults[counter].headline.main && responseResults[counter].pub_date && responseResults[counter].web_url){
-					results.push(responseResults[counter]);	
-				}
-			}
-				counter++;
-			}
-			console.log(responseResults);
-			console.log(results);
-			return results;
-		})
 	},
 
 	// getArticle : function() {
