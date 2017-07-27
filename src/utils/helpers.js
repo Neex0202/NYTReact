@@ -13,30 +13,24 @@ const helper = {
 		return axios.get(queryURL)
 	},
 
-	// getArticle : function() {
-	// 	return axios.get("api/saved");
-	// }
+	getArticle : function() {
+		return axios.get("api/saved");
+	}
 
-	// postArticle : function(){
+
+//POSTING ARTICLE FUNCTIONS
+	// saveArticle: function(title, date, url) {
+	// 	axios.post("api/saved", {title: title, date: date, url: url})
+	// 	.then(function(results){
+	// 		console.log();
+	// 	})
+	// }
 
 	// 	return.axios.post("api/saved");
 
 	// }
 
 
-	// runSearch : function(){
-
-	// 	return axios.get(queryURL, {
-	// 		params: {
-	// 			apiKey: apiKey
-	// 		// 	q: topic,
-	// 		// 	begin_date: start,
-	// 		// 	end_date: end
-	// 		// } //end params
-	// 	}).then(function(res){
-	// 		console.log(res.data.results)
-	// 		return res.data.results
-	// 	})
 	}//close runSearch Function
 
 

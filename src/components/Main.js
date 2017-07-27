@@ -3,6 +3,7 @@ import React from 'react';
 // IMPORT CHILDREN (Saved and Search)
 import Search from './Search';
 import Form from '../form.jsx';
+// import Results from './Results';
 import axios from 'axios';
 
 import helpers from '../utils/helpers';
@@ -65,7 +66,11 @@ helpers.nytQuery(topic, startYear, endYear)
 		//ask allan about this error
 		// console.log("state:" + {this.state.searchResults})
 
+		console.log("this.State.results:")
 		console.log(this.state.searchResults)
+		console.log("-----------------------")
+		console.log("-----------------------")
+		console.log("results from axios.get")
 		//array of objects
 		console.log(results);
 		// return results;
@@ -95,13 +100,24 @@ return (
 			makeRequest={this.makeRequest} />
 
         </div>
-
-      	<Results 
-      		articles= {this.state.searchResults}
-      	/>
+{/*
+    	<Results 
+      		searchResults = {this.state.searchResults}
+      	/>*/}
 
      {/*   <Form  makeRequest={this.makeRequest}/> */}
-      </div>
+
+
+
+
+ 	<div className="panel panel-default">
+   	 <div className="panel-body">
+{/* <Results  
+ {this.state.searchResults}/>*/}
+   	</div>
+  </div>
+
+      </div> //closing MAIN CONTAINER
 
 
 
