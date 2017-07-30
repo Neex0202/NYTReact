@@ -3,6 +3,7 @@ import React from 'react';
 // IMPORT CHILDREN (Saved and Search)
 import Search from './Search';
 import Form from '../form.jsx';
+import Results from './Results';
 import axios from 'axios';
 
 import helpers from '../utils/helpers';
@@ -47,6 +48,37 @@ makeRequest = (topic, startYear, endYear) => {
   // 	console.log(response)
   // })
 helpers.nytQuery(topic, startYear, endYear)
+	.then(function(response) {
+		console.log(response)
+		var results = [];
+		var responseResults = response.data.response.docs;//.docs
+		var counter = 0;
+
+		console.log("RESPONSE RESULTS:")
+		console.log("RESPONSE RESULTS:")
+		console.log("RESPONSE RESULTS:")
+
+		for(var i = 0; i < 5; i++) {
+			
+			if (responseResults[counter].headline.main && responseResults[counter].pub_date && responseResults[counter].web_url){
+				results.push(responseResults[counter]);	
+			}
+		}
+		// 		// console.log(responseResults);
+		this.setState({searchResults: results})
+
+		//ask allan about this error
+		// console.log("state:" + {this.state.searchResults})
+
+		console.log("this.State.results:")
+		console.log(this.state.searchResults)
+		console.log("-----------------------")
+		console.log("-----------------------")
+		console.log("results from axios.get")
+		//array of objects
+		console.log(results);
+		// return results;
+	}.bind(this))
 }
 
 render(){
@@ -72,9 +104,25 @@ return (
 			makeRequest={this.makeRequest} />
 
         </div>
+{/*
+    	<Results 
+      		searchResults = {this.state.searchResults}
+      	/>*/}
 
      {/*   <Form  makeRequest={this.makeRequest}/> */}
-      </div>
+
+
+
+
+ 	<div className="panel panel-default">
+   	 <div className="panel-body">
+{/* <Results  
+ {this.state.searchResults}/>*/}
+ 			<Results searchResults={this.state.searchResults}/>
+   	</div>
+  </div>
+
+      </div> //closing MAIN CONTAINER
 
 
 
