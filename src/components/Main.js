@@ -3,7 +3,7 @@ import React from 'react';
 // IMPORT CHILDREN (Saved and Search)
 import Search from './Search';
 import Form from '../form.jsx';
-// import Results from './Results';
+import Results from './Results';
 import axios from 'axios';
 
 import helpers from '../utils/helpers';
@@ -53,6 +53,10 @@ helpers.nytQuery(topic, startYear, endYear)
 		var results = [];
 		var responseResults = response.data.response.docs;//.docs
 		var counter = 0;
+
+		console.log("RESPONSE RESULTS:")
+		console.log("RESPONSE RESULTS:")
+		console.log("RESPONSE RESULTS:")
 
 		for(var i = 0; i < 5; i++) {
 			
@@ -114,6 +118,7 @@ return (
    	 <div className="panel-body">
 {/* <Results  
  {this.state.searchResults}/>*/}
+ 			<Results searchResults={this.state.searchResults}/>
    	</div>
   </div>
 
